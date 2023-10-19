@@ -1,5 +1,7 @@
 const defaultSize = 16;
 
+let mouseDown = false;
+
 function generateGrid(rowLength) {
   let totalCells = rowLength * rowLength;
   let percentage = 650 / rowLength;
@@ -11,8 +13,10 @@ function generateGrid(rowLength) {
     container.appendChild(myDiv);
     myDiv.style.width = `${percentage}px`;
     myDiv.style.height = `${percentage}px`;
-    myDiv.addEventListener('mouseover', () => {
+    myDiv.addEventListener('mouseenter', () => {
+      if (mouseDown) {
       myDiv.style.backgroundColor = 'red';
+      } else return;
     })
   }
 }
@@ -40,3 +44,11 @@ rowLengthSubmitBtn.addEventListener('click', () => {
 window.onload = () => {
   generateGrid(defaultSize);
 }
+
+document.addEventListener('mousedown', () => {
+  mouseDown = true;
+})
+
+document.addEventListener('mouseup', () => {
+  mouseDown = false;
+})
