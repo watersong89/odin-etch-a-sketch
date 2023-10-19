@@ -146,19 +146,3 @@ container.addEventListener('click', (e) => {
 window.onload = () => {
   generateGrid(defaultSize);
 }
-
-
-
-/*This is the beginnings of code to allow lightening and darkening of colors. Doesn't currently work in rainbow mode, also doesn't lighten or darken more than one increment 
-cells.addEventListener('click', () => {
-  if (noneSelector.checked) {
-    return;
-  } else if (lightenSelector.checked) {
-    cells.style.backgroundColor = LightenDarkenColor(colorWheel.value, 26);
-    lightDarkValue++;
-  } else if (darkenSelector.checked) {
-    cells.style.backgroundColor = LightenDarkenColor(colorWheel.value, -26);
-    lightDarkValue--;
-  }
-})
-} */
