@@ -1,4 +1,4 @@
-for (let i = 0; i < 16; i++) {
+for (let i = 0; i < 256; i++) {
   const container = document.querySelector('.js-container');
   let myDiv = document.createElement('div');
   myDiv.classList.add('myDiv');
