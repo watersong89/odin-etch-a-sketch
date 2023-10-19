@@ -3,6 +3,10 @@ const defaultSize = 16;
 let mouseDown = false;
 
 const colorWheel = document.querySelector('.color-wheel');
+const eraserSelector = document.querySelector('#eraser-selector');
+const rainbowSelector = document.querySelector('#rainbow-selector');
+const drawSelector = document.querySelector('#draw-selector');
+
 
 function generateGrid(rowLength) {
   let totalCells = rowLength * rowLength;
@@ -17,7 +21,14 @@ function generateGrid(rowLength) {
     myDiv.style.height = `${percentage}px`;
     myDiv.addEventListener('mouseenter', () => {
       if (mouseDown) {
+        if (drawSelector.checked) {
       myDiv.style.backgroundColor = colorWheel.value;
+        } else if (eraserSelector.checked) {
+          myDiv.style.backgroundColor = 'white';
+        } else if (rainbowSelector.checked) {
+          let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+          myDiv.style.backgroundColor = "#" + randomColor;
+        }
       } else return;
     })
   }
