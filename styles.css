@@ -8,11 +8,13 @@
   height: 650px;
   width: 650px;
   background-color: gainsboro;
+  border: 2px solid black;
+  box-sizing: initial;
 }
 
 .myDiv {
   height: 62.5px;
   width: 62.5px;
   background-color: aquamarine;
-  border: 0.05px solid black;
+  /* border: 0.05px solid black; */
 }

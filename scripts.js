@@ -9,6 +9,9 @@ function generateGrid(rowLength) {
     container.appendChild(myDiv);
     myDiv.style.width = `${percentage}px`;
     myDiv.style.height = `${percentage}px`;
+    myDiv.addEventListener('mouseover', () => {
+      myDiv.style.backgroundColor = 'red';
+    })
   }
 }
 
@@ -31,4 +34,3 @@ rowLengthSubmitBtn.addEventListener('click', () => {
   generateGrid(rowLength);
   }
 })
-
