@@ -5,8 +5,8 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  height: 1000px;
-  width: 1000px;
+  height: 650px;
+  width: 650px;
   background-color: gainsboro;
 }
 
@@ -14,5 +14,5 @@
   height: 62.5px;
   width: 62.5px;
   background-color: aquamarine;
-  border: 1px solid black;
+  border: 0.05px solid black;
 }

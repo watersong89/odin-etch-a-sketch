@@ -1,6 +1,18 @@
-for (let i = 0; i < 256; i++) {
+let rowLength = 4;
+let totalCells = rowLength * rowLength;
+let percentage = 650 / rowLength;
+
+for (let i = 0; i < totalCells; i++) {
   const container = document.querySelector('.js-container');
   let myDiv = document.createElement('div');
   myDiv.classList.add('myDiv');
   container.appendChild(myDiv);
+  myDiv.style.width = `${percentage}px`;
+  myDiv.style.height = `${percentage}px`;
 }
+
+// let rowInput = document.querySelector('input');
+
+// rowInput.addEventListener('click', () => {
+
+// })
