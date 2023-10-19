@@ -2,8 +2,42 @@
   box-sizing: border-box;
 }
 
+header {
+  text-align: center;
+  padding: 4rem;
+}
+
 body {
   background-color: rgb(165, 182, 198);
+  justify-content: center;
+  align-items: center;
+  font-family: "latienne-pro", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.options-container-left, .options-container-right {
+  display: flex;
+  flex-direction: column;
+  width: 10vw;
+}
+
+h1 {
+  font-family: "superblue", sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+h2 {
+  font-family: "superblue", sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
 }
 
 .container {
@@ -19,4 +53,9 @@ body {
   height: 62.5px;
   width: 62.5px;
   background-color: white;
+}
+
+.row-length-input {
+  min-width: 2vw;
+  max-width: 2vw;
 }

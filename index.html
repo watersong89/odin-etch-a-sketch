@@ -5,33 +5,45 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Etch-A-Sketch</title>
+  <link rel="stylesheet" href="https://use.typekit.net/jhq3paq.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css-reset.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  
-  <div class="container js-container"></div>
 
-  <label for="row-length">Enter the number of squares in a row:</label>
-  <input type="number" name="row-length" id="row-length">
+  <header>
+    <h1>Etch-A-Sketch</h1>
+    <h2>Click and drag to draw a picture!</h2>
+  </header>
+  
+  <main>
+  
+
+  <div class="options-container-left">
+  <label for="row-length" class="row-length-label">Choose your ratio (e.g. 16 for a 16x16 grid)</label>
+  <input type="number" name="row-length" id="row-length" class="row-length-input">
   <button type="submit" name="row-length" class="row-length-submit">Submit</button>
-  
-  <label for="color-wheel">Pick your color!</label>
-  <input type="color" name="color-wheel" id="color-wheel" class="color-wheel" value="#ABEEF7">
-
   
   <input type="radio" name="mode-selector" id="eraser-selector">
   <label for="eraser-selector">Eraser</label>
 
  
   <input type="radio" name="mode-selector" id="rainbow-selector">
-  <label for="eraser-selector">Rainbow Mode</label>
+  <label for="rainbow-selector">Rainbow Mode</label>
 
   
   <input type="radio" name="mode-selector" id="draw-selector" checked="checked">
   <label for="draw-selector">Draw!</label>
 
   <button name="clear" class="clearBtn">Clear</button>
+  </div>
+
+  <div class="container js-container"></div>
+
+  <div class="options-container-right">
+  <label for="color-wheel">Pick your color!</label>
+  <input type="color" name="color-wheel" id="color-wheel" class="color-wheel" value="#ABEEF7">
 
   <input type="radio" name="light-dark-selector" id="lighten-selector">
   <label for="lighten-selector">Lighten</label>
@@ -41,7 +53,13 @@
 
   <input type="radio" name="light-dark-selector" id="none-selector" checked="checked">
   <label for="none-selector">None</label>
+  </div>
 
+  </main>
+
+  <footer>
+    <p>Copyright 2023 watersong89 <a href="https://github.com/watersong89" target="_blank"><i class="bx bxl-github"></i></a></p>
+</footer>
   <script src="scripts.js"></script>
 </body>
 </html>
