@@ -1,6 +1,7 @@
 /*Variable Declarations*/
 
 const defaultSize = 16;
+const cellsArray = [];
 
 let mouseDown = false;
 let lightDarkValue = 5;
@@ -23,8 +24,8 @@ function generateGrid(rowLength) {
   let totalCells = rowLength * rowLength;
   let percentage = 650 / rowLength;
   clearGrid();
+  const container = document.querySelector('.js-container');
   for (let i = 0; i < totalCells; i++) {
-    const container = document.querySelector('.js-container');
     const cells = document.createElement('div');
     cells.classList.add('myDiv');
     container.appendChild(cells);
@@ -41,22 +42,9 @@ function generateGrid(rowLength) {
           cells.style.backgroundColor = "#" + randomColor;
         }
       } else return;
-    })
-
-    /*This is the beginnings of code to allow lightening and darkening of colors. Doesn't currently work in rainbow mode, also doesn't lighten or darken more than one increment */
-  cells.addEventListener('click', () => {
-    if (noneSelector.checked) {
-      return;
-    } else if (lightenSelector.checked) {
-      cells.style.backgroundColor = LightenDarkenColor(colorWheel.value, 10);
-      lightDarkValue++;
-    } else if (darkenSelector.checked) {
-      cells.style.backgroundColor = LightenDarkenColor(colorWheel.value, -10);
-      lightDarkValue--;
-    }
-  })
-  }
-}
+    });
+    cellsArray.push(cells);
+}}
 
 function clearGrid() {
   const container = document.querySelector('.js-container');
@@ -124,3 +112,19 @@ clearBtn.addEventListener('click', () => {
 window.onload = () => {
   generateGrid(defaultSize);
 }
+
+
+
+/*This is the beginnings of code to allow lightening and darkening of colors. Doesn't currently work in rainbow mode, also doesn't lighten or darken more than one increment 
+cells.addEventListener('click', () => {
+  if (noneSelector.checked) {
+    return;
+  } else if (lightenSelector.checked) {
+    cells.style.backgroundColor = LightenDarkenColor(colorWheel.value, 26);
+    lightDarkValue++;
+  } else if (darkenSelector.checked) {
+    cells.style.backgroundColor = LightenDarkenColor(colorWheel.value, -26);
+    lightDarkValue--;
+  }
+})
+} */
