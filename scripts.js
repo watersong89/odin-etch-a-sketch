@@ -46,7 +46,8 @@ function generateGrid(rowLength) {
       } else return;
     });
     cellsArray.push(cells);
-}}
+  }
+}
 
 function clearGrid() {
   const container = document.querySelector('.js-container');
@@ -69,19 +70,19 @@ function eraseGrid() {
 function LightenDarkenColor(col, amt) {
   let usePound = false;
   if (col[0] == "#") {
-      col = col.slice(1);
-      usePound = true;
+    col = col.slice(1);
+    usePound = true;
   }
-  let num = parseInt(col,16);let r = (num >> 16) + amt;
+  let num = parseInt(col, 16); let r = (num >> 16) + amt;
   if (r > 255) r = 255;
-  else if  (r < 0) r = 0;
+  else if (r < 0) r = 0;
   let b = ((num >> 8) & 0x00FF) + amt;
   if (b > 255) b = 255;
-  else if  (b < 0) b = 0;
+  else if (b < 0) b = 0;
   let g = (num & 0x0000FF) + amt;
   if (g > 255) g = 255;
   else if (g < 0) g = 0;
-  return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
+  return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
 }
 
 function RGBToHex(rgb) {
@@ -91,8 +92,8 @@ function RGBToHex(rgb) {
   rgb = rgb.substr(4).split(")")[0].split(sep);
 
   let r = (+rgb[0]).toString(16),
-      g = (+rgb[1]).toString(16),
-      b = (+rgb[2]).toString(16);
+    g = (+rgb[1]).toString(16),
+    b = (+rgb[2]).toString(16);
 
   if (r.length == 1)
     r = "0" + r;
@@ -116,6 +117,12 @@ rowLengthSubmitBtn.addEventListener('click', () => {
   }
 })
 
+document.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    rowLengthSubmitBtn.click();
+  } else return;
+})
+
 document.addEventListener('mousedown', () => {
   mouseDown = true;
 })
@@ -130,14 +137,14 @@ clearBtn.addEventListener('click', () => {
 
 container.addEventListener('click', (e) => {
   let originalColor = RGBToHex(e.target.style.backgroundColor);
-  if(e.target.classList.contains('js-is-changed')) {
-   if (noneSelector.checked) {
-    return;
-   } else if (lightenSelector.checked) {
-    e.target.style.backgroundColor = LightenDarkenColor(originalColor, 26);
-   } else if (darkenSelector.checked) {
-    e.target.style.backgroundColor = LightenDarkenColor(originalColor, -26);
-   }  
+  if (e.target.classList.contains('js-is-changed')) {
+    if (noneSelector.checked) {
+      return;
+    } else if (lightenSelector.checked) {
+      e.target.style.backgroundColor = LightenDarkenColor(originalColor, 26);
+    } else if (darkenSelector.checked) {
+      e.target.style.backgroundColor = LightenDarkenColor(originalColor, -26);
+    }
   } else return;
 })
 
