@@ -66,13 +66,15 @@ footer {
   min-width: 100%;
 }
 
-footer p {
+footer p,
+.attrib {
   width: 100vw;
   text-align: center;
   font-family: "latienne-pro", serif;
   font-weight: 500;
   font-style: normal;
   font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .options-container-left,
