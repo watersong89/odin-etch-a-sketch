@@ -18,7 +18,7 @@ const rowLengthInput = document.querySelector('#row-length');
 function generateGrid(rowLength) {
   let totalCells = rowLength * rowLength;
   let percentage = 650 / rowLength;
-
+  clearGrid();
   for (let i = 0; i < totalCells; i++) {
     const container = document.querySelector('.js-container');
     let myDiv = document.createElement('div');
@@ -46,7 +46,6 @@ function clearGrid() {
   while (container.firstChild) {
     container.removeChild(container.lastChild);
   }
-  generateGrid(defaultSize);
 }
 
 
