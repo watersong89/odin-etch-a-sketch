@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,56 +11,71 @@
   <link rel="stylesheet" href="css-reset.css">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
   <header>
     <h1>Etch-A-Sketch</h1>
     <h2>Click and drag to draw a picture!</h2>
   </header>
-  
+
   <main>
-  
+    <div class="options-container-left">
 
-  <div class="options-container-left">
-  <label for="row-length" class="row-length-label">Choose your ratio (e.g. 16 for a 16x16 grid)</label>
-  <input type="number" name="row-length" id="row-length" class="row-length-input">
-  <button type="submit" name="row-length" class="row-length-submit">Submit</button>
-  
-  <input type="radio" name="mode-selector" id="eraser-selector">
-  <label for="eraser-selector">Eraser</label>
+      <div class="option-section-left section1">
+        <label for="row-length" class="row-length-label">Choose your ratio (e.g. 16 for a 16x16 grid):</label>
+        <input type="number" name="row-length" id="row-length" class="row-length-input" value="16">
+        <button type="submit" name="row-length" class="row-length-submit">Submit</button>
+      </div>
 
- 
-  <input type="radio" name="mode-selector" id="rainbow-selector">
-  <label for="rainbow-selector">Rainbow Mode</label>
+      <div class="pen-selector">
+      <div class="option-section-left">
+        <label for="draw-selector">Draw</label>
+        <input type="radio" name="mode-selector" id="draw-selector" checked="checked">
+      </div>
 
-  
-  <input type="radio" name="mode-selector" id="draw-selector" checked="checked">
-  <label for="draw-selector">Draw!</label>
+      <div class="option-section-left">
+        <label for="rainbow-selector">Rainbow</label>
+        <input type="radio" name="mode-selector" id="rainbow-selector">
+      </div>
 
-  <button name="clear" class="clearBtn">Clear</button>
-  </div>
+      <div class="option-section-left">
+        <label for="eraser-selector">Eraser</label>
+        <input type="radio" name="mode-selector" id="eraser-selector">
+      </div>
+      </div>
 
-  <div class="container js-container"></div>
+      <button name="clear" class="clearBtn option-section-left">Clear</button>
+    </div>
 
-  <div class="options-container-right">
-  <label for="color-wheel">Pick your color!</label>
-  <input type="color" name="color-wheel" id="color-wheel" class="color-wheel" value="#ABEEF7">
+    <div class="container js-container"></div>
 
-  <input type="radio" name="light-dark-selector" id="lighten-selector">
-  <label for="lighten-selector">Lighten</label>
+    <div class="options-container-right">
+      <div class="option-section-right color-section">
+      <input type="color" name="color-wheel" id="color-wheel" class="color-wheel" value="#8F9FBF">
+      <label for="color-wheel">Pick your color!</label>
+    </div>
 
-  <input type="radio" name="light-dark-selector" id="darken-selector">
-  <label for="darken-selector">Darken</label>
+    <div class="option-section-right">
+      <input type="radio" name="light-dark-selector" id="lighten-selector">
+      <label for="lighten-selector">Lighten</label>
+    </div>
 
-  <input type="radio" name="light-dark-selector" id="none-selector" checked="checked">
-  <label for="none-selector">None</label>
-  </div>
+      <div class="option-section-right">
+      <input type="radio" name="light-dark-selector" id="darken-selector">
+      <label for="darken-selector">Darken</label>
+    </div>
 
+      <div class="option-section-right">
+      <input type="radio" name="light-dark-selector" id="none-selector" checked="checked">
+      <label for="none-selector">None</label>
+    </div>
+    </div>
   </main>
 
   <footer>
     <p>Copyright 2023 watersong89 <a href="https://github.com/watersong89" target="_blank"><i class="bx bxl-github"></i></a></p>
-</footer>
+  </footer>
   <script src="scripts.js"></script>
 </body>
 </html>
