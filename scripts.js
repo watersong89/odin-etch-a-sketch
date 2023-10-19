@@ -48,6 +48,16 @@ function clearGrid() {
   }
 }
 
+function eraseGrid() {
+  let rowLength = rowLengthInput.value;
+  if (rowLength === '') {
+    generateGrid(defaultSize);
+  } else {
+    generateGrid(rowLength);
+  }
+}
+
+console.log(rowLengthInput.value);
 
 /*Event Listeners*/
 
@@ -70,7 +80,7 @@ document.addEventListener('mouseup', () => {
 })
 
 clearBtn.addEventListener('click', () => {
-  clearGrid();
+  eraseGrid();
 })
 
 
