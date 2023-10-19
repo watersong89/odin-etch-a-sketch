@@ -113,8 +113,8 @@ i {
 }
 
 .row-length-input {
-  min-width: 3vw;
-  max-width: 3vw;
+  min-width: 6rem;
+  max-width: 6rem;
   border: none;
   padding: 0.2rem 1rem;
   color: #224040;
@@ -151,9 +151,9 @@ input[type="color"] {
   background: none;
   border: 0;
   cursor: pointer;
-  height: 7rem;
+  min-height: 6rem;
   padding: 0;
-  width: 7rem;
+  min-width: 6rem;
   margin-right: 1rem;
 }
 
