@@ -2,6 +2,8 @@ const defaultSize = 16;
 
 let mouseDown = false;
 
+const colorWheel = document.querySelector('.color-wheel');
+
 function generateGrid(rowLength) {
   let totalCells = rowLength * rowLength;
   let percentage = 650 / rowLength;
@@ -15,7 +17,7 @@ function generateGrid(rowLength) {
     myDiv.style.height = `${percentage}px`;
     myDiv.addEventListener('mouseenter', () => {
       if (mouseDown) {
-      myDiv.style.backgroundColor = 'red';
+      myDiv.style.backgroundColor = colorWheel.value;
       } else return;
     })
   }
