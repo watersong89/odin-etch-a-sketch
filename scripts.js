@@ -1,3 +1,5 @@
+/*Variable Declarations*/
+
 const defaultSize = 16;
 
 let mouseDown = false;
@@ -7,7 +9,11 @@ const eraserSelector = document.querySelector('#eraser-selector');
 const rainbowSelector = document.querySelector('#rainbow-selector');
 const drawSelector = document.querySelector('#draw-selector');
 const clearBtn = document.querySelector('.clearBtn');
+const rowLengthSubmitBtn = document.querySelector('.row-length-submit');
+const rowLengthInput = document.querySelector('#row-length');
 
+
+/*Functions*/
 
 function generateGrid(rowLength) {
   let totalCells = rowLength * rowLength;
@@ -23,7 +29,7 @@ function generateGrid(rowLength) {
     myDiv.addEventListener('mouseenter', () => {
       if (mouseDown) {
         if (drawSelector.checked) {
-      myDiv.style.backgroundColor = colorWheel.value;
+          myDiv.style.backgroundColor = colorWheel.value;
         } else if (eraserSelector.checked) {
           myDiv.style.backgroundColor = 'white';
         } else if (rainbowSelector.checked) {
@@ -43,8 +49,8 @@ function clearGrid() {
   generateGrid(defaultSize);
 }
 
-const rowLengthSubmitBtn = document.querySelector('.row-length-submit');
-const rowLengthInput = document.querySelector('#row-length');
+
+/*Event Listeners*/
 
 rowLengthSubmitBtn.addEventListener('click', () => {
   clearGrid();
@@ -52,13 +58,9 @@ rowLengthSubmitBtn.addEventListener('click', () => {
   if (rowLength > 100 || rowLength < 1) {
     alert('The number must be between 1 and 100.')
   } else {
-  generateGrid(rowLength);
+    generateGrid(rowLength);
   }
 })
-
-window.onload = () => {
-  generateGrid(defaultSize);
-}
 
 document.addEventListener('mousedown', () => {
   mouseDown = true;
@@ -71,3 +73,10 @@ document.addEventListener('mouseup', () => {
 clearBtn.addEventListener('click', () => {
   clearGrid();
 })
+
+
+/*On-Load behaviours*/
+
+window.onload = () => {
+  generateGrid(defaultSize);
+}
