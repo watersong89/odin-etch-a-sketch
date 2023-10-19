@@ -6,6 +6,7 @@ const colorWheel = document.querySelector('.color-wheel');
 const eraserSelector = document.querySelector('#eraser-selector');
 const rainbowSelector = document.querySelector('#rainbow-selector');
 const drawSelector = document.querySelector('#draw-selector');
+const clearBtn = document.querySelector('.clearBtn');
 
 
 function generateGrid(rowLength) {
@@ -39,6 +40,7 @@ function clearGrid() {
   while (container.firstChild) {
     container.removeChild(container.lastChild);
   }
+  generateGrid(defaultSize);
 }
 
 const rowLengthSubmitBtn = document.querySelector('.row-length-submit');
@@ -64,4 +66,8 @@ document.addEventListener('mousedown', () => {
 
 document.addEventListener('mouseup', () => {
   mouseDown = false;
+})
+
+clearBtn.addEventListener('click', () => {
+  clearGrid();
 })
