@@ -4,7 +4,6 @@ const defaultSize = 16;
 const cellsArray = [];
 
 let mouseDown = false;
-let lightDarkValue = 5;
 
 const colorWheel = document.querySelector('.color-wheel');
 const colorValue = colorWheel.value;
@@ -35,11 +34,14 @@ function generateGrid(rowLength) {
       if (mouseDown) {
         if (drawSelector.checked) {
           cells.style.backgroundColor = colorWheel.value;
+          cells.classList.add('js-is-changed')
         } else if (eraserSelector.checked) {
           cells.style.backgroundColor = 'white';
+          cells.classList.remove('js-is-changed')
         } else if (rainbowSelector.checked) {
           let randomColor = Math.floor(Math.random() * 16777215).toString(16);
           cells.style.backgroundColor = "#" + randomColor;
+          cells.classList.add('js-is-changed')
         }
       } else return;
     });
@@ -82,6 +84,26 @@ function LightenDarkenColor(col, amt) {
   return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
 }
 
+function RGBToHex(rgb) {
+  // Choose correct separator
+  let sep = rgb.indexOf(",") > -1 ? "," : " ";
+  // Turn "rgb(r,g,b)" into [r,g,b]
+  rgb = rgb.substr(4).split(")")[0].split(sep);
+
+  let r = (+rgb[0]).toString(16),
+      g = (+rgb[1]).toString(16),
+      b = (+rgb[2]).toString(16);
+
+  if (r.length == 1)
+    r = "0" + r;
+  if (g.length == 1)
+    g = "0" + g;
+  if (b.length == 1)
+    b = "0" + b;
+
+  return "#" + r + g + b;
+}
+
 /*Event Listeners*/
 
 rowLengthSubmitBtn.addEventListener('click', () => {
@@ -106,7 +128,18 @@ clearBtn.addEventListener('click', () => {
   eraseGrid();
 })
 
-container.addEventListener
+container.addEventListener('click', (e) => {
+  let originalColor = RGBToHex(e.target.style.backgroundColor);
+  if(e.target.classList.contains('js-is-changed')) {
+   if (noneSelector.checked) {
+    return;
+   } else if (lightenSelector.checked) {
+    e.target.style.backgroundColor = LightenDarkenColor(originalColor, 26);
+   } else if (darkenSelector.checked) {
+    e.target.style.backgroundColor = LightenDarkenColor(originalColor, -26);
+   }  
+  } else return;
+})
 
 /*On-Load behaviours*/
 
