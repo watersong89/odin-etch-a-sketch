@@ -1,3 +1,5 @@
+const defaultSize = 16;
+
 function generateGrid(rowLength) {
   let totalCells = rowLength * rowLength;
   let percentage = 650 / rowLength;
@@ -34,3 +36,7 @@ rowLengthSubmitBtn.addEventListener('click', () => {
   generateGrid(rowLength);
   }
 })
+
+window.onload = () => {
+  generateGrid(defaultSize);
+}
