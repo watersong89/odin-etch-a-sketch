@@ -17,6 +17,7 @@ const rowLengthInput = document.querySelector('#row-length');
 const lightenSelector = document.querySelector('#lighten-selector')
 const darkenSelector = document.querySelector('#darken-selector')
 const noneSelector = document.querySelector('#none-selector')
+const container = document.querySelector('.js-container');
 
 /*Functions*/
 
@@ -24,7 +25,6 @@ function generateGrid(rowLength) {
   let totalCells = rowLength * rowLength;
   let percentage = 650 / rowLength;
   clearGrid();
-  const container = document.querySelector('.js-container');
   for (let i = 0; i < totalCells; i++) {
     const cells = document.createElement('div');
     cells.classList.add('myDiv');
@@ -106,6 +106,7 @@ clearBtn.addEventListener('click', () => {
   eraseGrid();
 })
 
+container.addEventListener
 
 /*On-Load behaviours*/
 
