@@ -12,10 +12,13 @@ for (let i = 0; i < totalCells; i++) {
 }
 }
 
-generateGrid(16);
 
-// let rowInput = document.querySelector('input');
 
-// rowInput.addEventListener('click', () => {
+const rowLengthSubmitBtn = document.querySelector('.row-length-submit');
+const rowLengthInput = document.querySelector('#row-length');
 
-// })
+rowLengthSubmitBtn.addEventListener('click', () => {
+  let rowLength = rowLengthInput.value;
+  generateGrid(rowLength);
+})
+
