@@ -1,4 +1,4 @@
-let rowLength = 4;
+function generateGrid (rowLength) {
 let totalCells = rowLength * rowLength;
 let percentage = 650 / rowLength;
 
@@ -10,6 +10,9 @@ for (let i = 0; i < totalCells; i++) {
   myDiv.style.width = `${percentage}px`;
   myDiv.style.height = `${percentage}px`;
 }
+}
+
+generateGrid(16);
 
 // let rowInput = document.querySelector('input');
 
