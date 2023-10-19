@@ -25,31 +25,33 @@ function generateGrid(rowLength) {
   clearGrid();
   for (let i = 0; i < totalCells; i++) {
     const container = document.querySelector('.js-container');
-    let myDiv = document.createElement('div');
-    myDiv.classList.add('myDiv');
-    container.appendChild(myDiv);
-    myDiv.style.width = `${percentage}px`;
-    myDiv.style.height = `${percentage}px`;
-    myDiv.addEventListener('mouseenter', () => {
+    const cells = document.createElement('div');
+    cells.classList.add('myDiv');
+    container.appendChild(cells);
+    cells.style.width = `${percentage}px`;
+    cells.style.height = `${percentage}px`;
+    cells.addEventListener('mouseenter', () => {
       if (mouseDown) {
         if (drawSelector.checked) {
-          myDiv.style.backgroundColor = colorWheel.value;
+          cells.style.backgroundColor = colorWheel.value;
         } else if (eraserSelector.checked) {
-          myDiv.style.backgroundColor = 'white';
+          cells.style.backgroundColor = 'white';
         } else if (rainbowSelector.checked) {
           let randomColor = Math.floor(Math.random() * 16777215).toString(16);
-          myDiv.style.backgroundColor = "#" + randomColor;
+          cells.style.backgroundColor = "#" + randomColor;
         }
       } else return;
     })
-  myDiv.addEventListener('click', () => {
+
+    /*This is the beginnings of code to allow lightening and darkening of colors. Doesn't currently work in rainbow mode, also doesn't lighten or darken more than one increment */
+  cells.addEventListener('click', () => {
     if (noneSelector.checked) {
       return;
     } else if (lightenSelector.checked) {
-      myDiv.style.backgroundColor = LightenDarkenColor(colorWheel.value, 10);
+      cells.style.backgroundColor = LightenDarkenColor(colorWheel.value, 10);
       lightDarkValue++;
     } else if (darkenSelector.checked) {
-      myDiv.style.backgroundColor = LightenDarkenColor(colorWheel.value, -10);
+      cells.style.backgroundColor = LightenDarkenColor(colorWheel.value, -10);
       lightDarkValue--;
     }
   })
