@@ -36,7 +36,7 @@ function generateGrid(rowLength) {
           cells.style.backgroundColor = colorWheel.value;
           cells.classList.add('js-is-changed')
         } else if (eraserSelector.checked) {
-          cells.style.backgroundColor = 'white';
+          cells.style.backgroundColor = '#BAD9D6';
           cells.classList.remove('js-is-changed')
         } else if (rainbowSelector.checked) {
           let randomColor = Math.floor(Math.random() * 16777215).toString(16);
