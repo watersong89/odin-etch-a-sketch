@@ -63,7 +63,21 @@ function generateGrid(rowLength) {
       } else return;
     });
     cellsArray.push(cells);
+    cells.addEventListener('touchstart', (e) => {
+      if (drawSelector.checked) {
+        e.target.style.backgroundColor = colorWheel.value;
+        e.target.classList.add('js-is-changed');
+      } else if (eraserSelector.checked) {
+        e.target.style.backgroundColor = '#BAD9D6';
+        e.target.classList.remove('js-is-changed');
+      } else if (rainbowSelector.checked) {
+        let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        e.target.style.backgroundColor = "#" + randomColor;
+        e.target.classList.add('js-is-changed');
+      }
+    });
   }
+  
 }
 
 function clearGrid() {
@@ -123,6 +137,34 @@ function RGBToHex(rgb) {
 }
 
 /*Event Listeners*/
+
+document.addEventListener('touchstart', () => {
+  mouseDown = true;
+});
+
+document.addEventListener('touchend', () => {
+  mouseDown = false;
+});
+
+container.addEventListener('touchmove', (e) => {
+  e.preventDefault(); // Prevent scrolling on touch devices
+  const touch = e.touches[0];
+  const target = document.elementFromPoint(touch.clientX, touch.clientY);
+  if (target.classList.contains('myDiv')) {
+    if (drawSelector.checked) {
+      target.style.backgroundColor = colorWheel.value;
+      target.classList.add('js-is-changed');
+    } else if (eraserSelector.checked) {
+      target.style.backgroundColor = '#BAD9D6';
+      target.classList.remove('js-is-changed');
+    } else if (rainbowSelector.checked) {
+      let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+      target.style.backgroundColor = "#" + randomColor;
+      target.classList.add('js-is-changed');
+    }
+  }
+});
+
 
 rowLengthSubmitBtn.addEventListener('click', () => {
   clearGrid();
