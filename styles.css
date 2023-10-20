@@ -226,3 +226,52 @@ input[type="radio"]::before {
 input[type="radio"]:checked::before {
   transform: scale(1);
 }
+
+/* Media Queries */
+
+@media screen and (max-width: 992px) {
+  main {
+    flex-direction: column;
+  }
+
+  .options-container-left,
+  .options-container-right {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 500px;
+  }
+
+  .section1 {
+    text-align: left;
+  }
+
+  .pen-selector {
+    display: inline-block;
+  }
+
+  .clearBtn {
+    display: none;
+  }
+
+  .clearBtnSmall {
+    display: block;
+  }
+
+  input[type="color"] {
+    min-height: 4rem;
+    min-width: 4rem;
+  }
+
+  .mode-selector {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .color-section {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+}

@@ -11,6 +11,7 @@ const eraserSelector = document.querySelector('#eraser-selector');
 const rainbowSelector = document.querySelector('#rainbow-selector');
 const drawSelector = document.querySelector('#draw-selector');
 const clearBtn = document.querySelector('.clearBtn');
+const clearBtnSmall = document.querySelector('.clearBtnSmall');
 const rowLengthSubmitBtn = document.querySelector('.row-length-submit');
 const rowLengthInput = document.querySelector('#row-length');
 const lightenSelector = document.querySelector('#lighten-selector')
@@ -152,6 +153,10 @@ document.addEventListener('mouseup', () => {
 })
 
 clearBtn.addEventListener('click', () => {
+  eraseGrid();
+})
+
+clearBtnSmall.addEventListener('click', () => {
   eraseGrid();
 })
 
