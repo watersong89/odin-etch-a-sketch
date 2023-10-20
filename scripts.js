@@ -153,6 +153,10 @@ container.addEventListener('click', (e) => {
   } else return;
 })
 
+window.addEventListener('resize', () => {
+  generateGrid(defaultSize);
+})
+
 /*On-Load behaviours*/
 
 window.onload = () => {
