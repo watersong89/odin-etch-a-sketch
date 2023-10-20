@@ -20,14 +20,10 @@ const noneSelector = document.querySelector('#none-selector')
 const container = document.querySelector('.js-container');
 
 /*Functions*/
-console.log(getInnerWidth(container));
 
 function createContainer () {
-  let minWidth = container.style.minWidth;
-  minWidth = '500px';
-  container.style.minHeight = minWidth;
   let width = container.style.width;
-  width = '50vw';
+  width = '70vw';
   container.style.height = width;
   let maxWidth = container.style.maxWidth;
   maxWidth = '800px';
