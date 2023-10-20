@@ -20,9 +20,14 @@ const container = document.querySelector('.js-container');
 
 /*Functions*/
 
+
+function getInnerWidth(elem) {
+  return parseFloat(window.getComputedStyle(elem).width);
+}
+
 function generateGrid(rowLength) {
   let totalCells = rowLength * rowLength;
-  let percentage = 650 / rowLength;
+  let percentage = getInnerWidth(container) / rowLength;
   clearGrid();
   for (let i = 0; i < totalCells; i++) {
     const cells = document.createElement('div');
