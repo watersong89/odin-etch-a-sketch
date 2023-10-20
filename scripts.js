@@ -19,16 +19,31 @@ const noneSelector = document.querySelector('#none-selector')
 const container = document.querySelector('.js-container');
 
 /*Functions*/
+console.log(getInnerWidth(container));
 
+function createContainer () {
+  let minWidth = container.style.minWidth;
+  minWidth = '500px';
+  container.style.minHeight = minWidth;
+  let width = container.style.width;
+  width = '50vw';
+  container.style.height = width;
+  let maxWidth = container.style.maxWidth;
+  maxWidth = '800px';
+  container.style.maxHeight = maxWidth;
+}
 
 function getInnerWidth(elem) {
   return parseFloat(window.getComputedStyle(elem).width);
 }
 
 function generateGrid(rowLength) {
+  createContainer();
+
   let totalCells = rowLength * rowLength;
   let percentage = getInnerWidth(container) / rowLength;
   clearGrid();
+  
   for (let i = 0; i < totalCells; i++) {
     const cells = document.createElement('div');
     cells.classList.add('myDiv');
